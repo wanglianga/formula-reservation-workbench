@@ -45,7 +45,29 @@ export interface Batch {
   supplier: string
 }
 
-export type AppointmentStatus = 'pending' | 'completed' | 'cancelled'
+export type AppointmentStatus = 'pending' | 'completed' | 'cancelled' | 'waiting_stock' | 'substituted'
+
+export interface StageTransitionRecord {
+  id: string
+  babyId: string
+  fromStage: string
+  toStage: string
+  fromSkuId: string
+  toSkuId: string
+  reason: string
+  customerConsent: boolean
+  operatorName: string
+  createdAt: string
+  appointmentId?: string
+}
+
+export interface StockAlternative {
+  skuId: string
+  reason: 'same_stage_substitute' | 'wait_restock'
+  expectedArrival?: string
+  giftImpact: string
+  customerChoice?: 'wait' | 'substitute' | 'none'
+}
 
 export interface Appointment {
   id: string
@@ -57,6 +79,10 @@ export interface Appointment {
   status: AppointmentStatus
   createdAt: string
   staffName: string
+  stageTransitionId?: string
+  originalSkuId?: string
+  stockAlternativeChoice?: 'wait' | 'substitute'
+  expectedArrival?: string
 }
 
 export interface GiftActivity {

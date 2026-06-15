@@ -26,12 +26,13 @@ export const seedMembers: Member[] = [
 ]
 
 export const seedBabies: Baby[] = [
-  { id: 'b-1', memberId: 'm-1', name: '小宝', gender: '男', birthDate: '2026-03-11', months: 3, allergyNote: '', avatar: '👶' },
+  { id: 'b-1', memberId: 'm-1', name: '小宝', gender: '男', birthDate: '2025-12-15', months: 6, allergyNote: '', avatar: '👶' },
   { id: 'b-2', memberId: 'm-1', name: '小贝', gender: '女', birthDate: '2025-10-11', months: 8, allergyNote: '牛奶蛋白过敏-禁用XX品牌', avatar: '👧' },
   { id: 'b-3', memberId: 'm-2', name: '乐乐', gender: '男', birthDate: '2025-03-11', months: 15, allergyNote: '', avatar: '🧒' },
   { id: 'b-4', memberId: 'm-3', name: '糖糖', gender: '女', birthDate: '2024-02-11', months: 28, allergyNote: '乳糖不耐受-建议选择特殊配方', avatar: '👧' },
   { id: 'b-5', memberId: 'm-4', name: '壮壮', gender: '男', birthDate: '2022-12-11', months: 42, allergyNote: '', avatar: '🧒' },
   { id: 'b-6', memberId: 'm-5', name: '萌萌', gender: '女', birthDate: '2026-01-11', months: 5, allergyNote: '', avatar: '👶' },
+  { id: 'b-7', memberId: 'm-2', name: '甜甜', gender: '女', birthDate: '2025-06-15', months: 12, allergyNote: '', avatar: '👶' },
 ]
 
 export const seedSkus: MilkSku[] = [

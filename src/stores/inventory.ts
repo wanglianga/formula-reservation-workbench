@@ -91,6 +91,20 @@ export const useInventoryStore = defineStore('inventory', () => {
     return true
   }
 
+  function getSameStageAlternatives(skuId: string): MilkSku[] {
+    const currentSku = skus.value.find(s => s.id === skuId)
+    if (!currentSku) return []
+    return skus.value.filter(s =>
+      s.id !== skuId &&
+      s.stage === currentSku.stage &&
+      getStockBySku(s.id) > 0
+    )
+  }
+
+  function getStockOutInfo(skuId: string): StockOut | null {
+    return stockOuts.value.find(so => so.skuId === skuId && so.status === 'pending') || null
+  }
+
   return {
     skus,
     batches,
@@ -102,5 +116,7 @@ export const useInventoryStore = defineStore('inventory', () => {
     deductStock,
     registerStockOut,
     resolveStockOut,
+    getSameStageAlternatives,
+    getStockOutInfo,
   }
 })
